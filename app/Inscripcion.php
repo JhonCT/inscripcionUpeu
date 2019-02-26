@@ -10,6 +10,6 @@ class Inscripcion extends Model
     protected $primaryKey = 'id';
 
     protected $fillable = [
-        '__token', 'categorias', 'disciplina', 'jugadores', 'delegado', 'facultad', 'anho'
+        '__token', 'categorias', 'disciplina', 'jugadores', 'delegado', 'costo'
     ];
 }

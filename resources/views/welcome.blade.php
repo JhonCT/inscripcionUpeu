@@ -5,120 +5,132 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Laravel</title>
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" type="text/css" href="{{asset('css/semantic.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap.min.css')}}">
     <script type="text/javascript" src="{{asset('js/jquery.min.js')}}"></script>
-    <script type="text/javascript" src="{{asset('js/semantic.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('js/bootstrap.min.js')}}"></script>
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
 </head>
-<body>
-<div class="ui grid">
-    <div class="ui text container four wide column">
-        <form class="ui form" method="post" action="{{route('inscripcion')}}" accept-charset="UTF-8"
-              enctype="multipart/form-data">
-            @csrf
-            <h4 class="ui dividing header">Datos de Inscripción</h4>
-            <div class="field">
-                <label>Selecciona la Categoría</label>
-                <select class="ui fluid dropdown" name="categorias">
-                    <option value="Master">Master</option>
-                    <option value="Libre">Libre</option>
-                </select>
-            </div>
-            <div class="field">
-                <label>Seleccione la Disciplina</label>
-                <div class="field">
-                    <div class="ui checkbox">
-                        <input type="checkbox" value="Futsal Varones" name="disciplina[]"
-                               onchange="toggleCheckbox(this)">
-                        <label>Futsal Varones</label>
-                    </div>
-                </div>
-                <div class="field">
-                    <div class="ui checkbox">
-                        <input type="checkbox" value="Voley Damas" name="disciplina[]" onchange="toggleCheckbox(this)">
-                        <label>Voley Damas</label>
-                    </div>
-                </div>
-                <div class="field">
-                    <div class="ui checkbox">
-                        <input type="checkbox" value="Basquet Varones" name="disciplina[]"
-                               onchange="toggleCheckbox(this)">
-                        <label>Básquet Varones</label>
-                    </div>
-                </div>
-                <div class="field">
-                    <div class="ui checkbox">
-                        <input type="checkbox" value="Basquet Damas" name="disciplina[]"
-                               onchange="toggleCheckbox(this)">
-                        <label>Básquet Damas</label>
-                    </div>
-                </div>
-            </div>
-            <h4 class="ui dividing header">Datos de Facturación</h4>
-            <div class="field">
-                <label>Costo</label>
-                <input name="costo" value="S/. 0" id="costo" disabled>
-            </div>
+<body style="background-image: url({{asset('img/ball-blur-championship-209841-ConvertImage.jpg')}}); background-repeat: no-repeat, repeat; background-position: center; background-size: cover;">
+<div class="container-fluid"> <!--#9A2E46-->
+    <div class="row justify-content-center" style="margin-bottom: 50px">
+    </div>
+    <div class="row justify-content-center">
+        <div class="mx-auto col-sm-5">
+            <p style="font-family: 'Pacifico', cursive; color: white; font-size: 70px">Copa Centenario</p>
+        </div>
 
-            <h4 class="ui dividing header">Datos de Jugadores</h4>
-            <div class="field">
-                <label for="file" class="ui button">Cargar Archivo</label>
-                <input type="file" name="file" id="file" style="display:none">
-            </div>
-            <div class="field">
-                <label>Apellidos y Nombres del Delegado</label>
-                <div class="ui input">
-                    <input type="text" placeholder="Apellidos y Nombres" name="delegado">
+        <div class="mx-auto col-sm-4">
+            <div class="card" style="border-radius: 30px; margin-top: 60px; box-shadow: 10px 10px black">
+                <div class="card-body">
+                    <form method="post" action="{{route('inscripcion')}}" accept-charset="UTF-8"
+                          enctype="multipart/form-data">
+                        @csrf
+                        <div class="form-group row">
+                            <div class="col-lg-3 col-form-label form-control-label">Categoría</div>
+                            <div class="col-lg-9">
+                                <select class="form-control" name="categorias">
+                                    <option value="" actived>Selecciona tu categoría</option>
+                                    <option value="Master">Master - (40-60 Años)</option>
+                                    <option value="Libre">Libre - (23-39 Años)</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">Disciplina</label>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="Futsal Varones"
+                                                   name="disciplina[]"
+                                                   onchange="toggleCheckbox(this)">
+                                            <label class="form-check-label">Futsal Varones</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="Voley Damas"
+                                                   name="disciplina[]"
+                                                   onchange="toggleCheckbox(this)">
+                                            <label class="form-check-label">Voley Damas</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="Basquet Varones"
+                                                   name="disciplina[]"
+                                                   onchange="toggleCheckbox(this)">
+                                            <label class="form-check-label">Básquet Varones</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="Basquet Damas"
+                                                   name="disciplina[]"
+                                                   onchange="toggleCheckbox(this)">
+                                            <label class="form-check-label">Básquet Damas</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">Costo</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" name="costo" value="S/. 0" id="costo" readonly=”readonly”>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-lg-4 col-form-label form-control-label">Jugadores</label>
+                            <div class="col-lg-8">
+                                <label for="file" class="custom-file-label" id="archivo">Subir Archivo</label>
+                                <input class="custom-file-input" type="file" name="file" id="file" lang="en"
+                                       onchange="nombreArchivo()">
+                            </div>
+                            <div class="col-lg-12" style="text-align: right; font-size: 15px">
+                                <p>Descargue el formato de jugadores. <a href="/formato">Descagar Formato</a></p>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">Delegado</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" type="text" placeholder="Apellidos y Nombres"
+                                       name="delegado">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" onchange="reglamento(this)">
+                                <label class="form-check-label">Lea el reglamento</label>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary btn-sm disabled" id="btnsave" type="submit" disabled>
+                            Registrarse
+                        </button>
+                    </form>
                 </div>
             </div>
-
-
-            <h4 class="ui dividing header">Datos de Egreso</h4>
-            <div class="field">
-                <label>Facultad</label>
-                <select class="ui fluid dropdown" name="facultad">
-                    <option value="FIA">Ingeniería y Arquitectura</option>
-                    <option value="Empresariales">Ciencias Empresariales</option>
-                </select>
-            </div>
-
-            <div class="field">
-                <label>Año de Egreso</label>
-                <div class="ui input">
-                    <input type="text" placeholder="Año" name="anho">
-                </div>
-            </div>
-
-            <h4 class="ui dividing header">Reglamento</h4>
-            <div class="field">
-                <div class="ui checkbox">
-                    <input type="checkbox" onchange="reglamento(this)">
-                    <label>Lea el reglamento</label>
-                </div>
-            </div>
-
-            <button class="ui button" id="btnsave" type="submit" disabled>Registrarse</button>
-        </form>
+        </div>
     </div>
 </div>
 
-<div class="ui modal">
-    <div class="header">
-        Reglamento
-    </div>
-    <div class="content">
-        <div class="description">
-            <div class="ui header">Lorem ipsum dolor sit amet</div>
-            <p>, consectetur adipisicing elit. <a href="https://www.upeu.edu.pe" target="_blank">UPeU</a> A aliquid
-                beatae eos est labore necessitatibus sunt veniam?</p>
-            <p>Alias iure libero minus obcaecati quasi qui quis reprehenderit, sed? Praesentium, quos, rerum!</p>
-        </div>
-    </div>
-    <div class="actions">
-        <div class="ui black deny button">
-            Cerrar
-        </div>
-        <div class="ui positive button">
-            Aceptar
+<div class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Reglamento</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <iframe width="100%" height="500" src="{{asset('recursos/ECO-1927.pdf')}}" frameborder="0"></iframe>
+            </div>
         </div>
     </div>
 </div>
@@ -139,27 +151,33 @@
 
     function reglamento(element) {
         if (element.checked == true) {
-            document.getElementById('btnsave').classList.add('primary');
+            document.getElementById('btnsave').classList.remove('disabled');
+            document.getElementById('btnsave').classList.add('active');
             document.getElementById('btnsave').disabled = false;
 
-            $('.ui.modal').modal('show');
+            $('.modal').modal('show');
         } else {
-            document.getElementById('btnsave').classList.remove('primary');
+            document.getElementById('btnsave').classList.remove('active');
+            document.getElementById('btnsave').classList.add('disabled');
             document.getElementById('btnsave').disabled = true;
         }
     }
+
+    function nombreArchivo() {
+        document.getElementById("archivo").innerHTML = document.getElementById("file").files[0].name;
+    }
 </script>
 <style type="text/css">
-    .ui.text.container {
-        margin-top: 50px !important;
-    }
-
     #costo {
         border: 0px;
-        color: black;
+        color: red;
         text-decoration: none;
-        font-size: 30px;
+        background-color: white;
+        text-align: center;
         padding: 0px;
+        font-weight: bold;
+        outline: none !important;
+        box-shadow: none
     }
 </style>
 </body>

@@ -19,8 +19,7 @@ class Inscripcion extends Migration
             $table->string('disciplina');
             $table->string('jugadores');
             $table->string('delegado');
-            $table->string('facultad');
-            $table->string('anho');
+            $table->string('costo');
             $table->rememberToken();
             $table->timestamps();
         });

@@ -16,4 +16,7 @@ Route::get('/', function () {
 });
 
 Route::post('inscripcion', 'InscripcionController@registrarse')->name('inscripcion');
-
+Route::get('reporte', 'InscripcionController@inscripciones')->name('reporte');
+Route::get('download/{file}' , 'InscripcionController@downloadFile');
+Route::get('formato' , 'InscripcionController@descargarFormato');
+Route::get('reglamento' , 'InscripcionController@descargarReglamento');

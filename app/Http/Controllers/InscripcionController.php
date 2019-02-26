@@ -14,7 +14,7 @@ class InscripcionController extends Controller
     {
         $disciplinas = $request['disciplina'];
 
-        //obteniendo el archivo
+        //Obteniendo el archivo
         $file = $request->file('file');
         $nombre = $file->getClientOriginalName();
 
@@ -26,11 +26,40 @@ class InscripcionController extends Controller
         $inscripcion = new Inscripcion($request->all());
 
         $inscripcion->jugadores = $nombre;
-        //conviertiendo el array de disciplinas a a string
+
+        //Conviertiendo el array de disciplinas a a string
         $inscripcion->disciplina = implode(", ", $disciplinas);
+
+        //Conviertiendo costo
+
+        $costo = explode(" ", $request['costo'], 2)[1];
+
+        $inscripcion->costo = $costo;
 
         $inscripcion->save();
 
-        return redirect('/');
+        $lastInscripcion = Inscripcion::all()->last();
+
+        return view('pago')->with('pago', $lastInscripcion);
+    }
+
+    public function inscripciones(){
+        $inscripciones = Inscripcion::all();
+        return view('reporte')->with('inscripciones', $inscripciones);
+    }
+
+    public function downloadFile($file){
+        $pathtoFile = '/home/hidden/Desktop/blog/storage/app/'.$file;
+        return response()->download($pathtoFile);
+    }
+
+    public function descargarFormato(){
+        $pathtoFile = '/home/hidden/Desktop/blog/storage/app/formato.xlsx';
+        return response()->download($pathtoFile);
+    }
+
+    public function descargarReglamento(){
+        $pathtoFile = '/home/hidden/Desktop/blog/public/recursos/ECO-1927.pdf';
+        return response()->download($pathtoFile);
     }
 }
